@@ -17,7 +17,7 @@ export const session = function(key, value){
     };
     return sessionStorage.setItem(key, value);
   }
-} 
+}
 
 //生成随机数
 export const getUUID = function (len) {
@@ -45,9 +45,10 @@ export const deepcopy = function (source) {
 };
 //菜单数据组织
 export const buildMenu = function (array, ckey) {
+  console.info("buildMenu => ", array);
   let menuData = [];
   let indexKeys = Array.isArray(array) ? array.map((e) => {return e.id}) : [];
-  ckey = ckey || 'parent_id';
+  ckey = ckey || 'parentId';
   array.forEach(function (e, i) {
     //一级菜单
     if (!e[ckey] || (e[ckey]===e.id)) {
