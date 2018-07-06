@@ -37,6 +37,7 @@
     padding-top: 55px;
     border-right: 1px solid #dedede;
     overflow-y: auto;
+    /*background-color: #409EFF;*/
   }
 
   .g-head {
@@ -47,7 +48,7 @@
     width: 100%;
     height: 55px;
     line-height: 55px;
-    background: #E6A23C;
+    background: #409EFF;
   }
 
   .logo {
@@ -89,16 +90,15 @@
     <el-row type="flex" class="g-head">
       <span class="logo">自如驿后台管理系统</span>
       <div class="nav">
-        <div class="usermenu" v-if="user.id">
-          欢迎您：{{user.name}}
+        <div class="usermenu" v-if="user.empCode">
+          欢迎您：{{user.empName}}
           <router-link :to="{path: '/'}"><i class="el-icon-location"></i>首页</router-link>
           <a href="javascript:;" @click="logout"><i class="el-icon-circle-close"></i>退出</a>
         </div>
       </div>
-      <a href="javascript:;" @click="logout"><i class="el-icon-circle-close"></i>退出</a>
     </el-row>
 
-    <el-menu :default-active="activeMenu" class="g-side" router>
+    <el-menu :default-active="activeMenu" class="g-side" router unique-opened="true">
       <template v-for="(route, index) in menus">
         <template v-if="route.children">
           <el-submenu :key="index" :index="route.name">

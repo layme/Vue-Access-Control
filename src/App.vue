@@ -84,8 +84,8 @@ export default {
       let setMenu2Hash = function(array, base) {
         array.map(key => {
           if (key.route) {
-            let hashKey = ((base ? base : '') + key.route);
-            hashMenus[hashKey] = true;
+            let hashKey = ((base ? base + '/' : '') + key.route).replace(/^\//, '');
+            hashMenus['/' + hashKey] = true;
             if (Array.isArray(key.children)) {
               setMenu2Hash(key.children, key.route);
             }
@@ -101,7 +101,7 @@ export default {
       let findLocalRoute = function(array, base) {
         let replyResult = [];
         array.forEach(function(route) {
-          let pathKey = (base ? base : '') + route.path;
+          let pathKey = (base ? base + '/' : '') + route.path;
           if (hashMenus[pathKey]) {
             if (Array.isArray(route.children)) {
               route.children = findLocalRoute(route.children, route.path);
@@ -134,7 +134,7 @@ export default {
         return e.beforeEnter = function(to, from, next){
           console.log("to => ", to);
           console.log("to.path => ", to.path);
-          if(vm.$root.hashMenus["/v1" + to.path]){
+          if(vm.$root.hashMenus[to.path]){
             next()
           }else{
             console.log("没有权限，跳转401");
@@ -167,7 +167,7 @@ export default {
           vm.$message.error('获取权限异常！');
           return;
         }
-        let menuList = data.data;
+        let menuList = data.data.menuDataVos;
         // 取得资源权限对象
          let resourcePermission = vm.getPermission(menuList);
         // 使用资源权限设置请求拦截
@@ -184,7 +184,7 @@ export default {
         vm.extendRoutes(allowedRouter);
         // 保存数据用作他处，非必需
         vm.menuData = allowedRouter;
-        vm.userData = menuList;
+        vm.userData = data.data.employeeEntity;
         // 权限检验方法
         Vue.prototype.$_has = function(rArray) {
           let resources = [];
