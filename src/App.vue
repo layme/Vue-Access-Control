@@ -1,7 +1,3 @@
-<style>
-@import './assets/common.css';
-</style>
-
 <template>
   <router-view id="app" @login="loginDirect" @logout="logoutDirect"></router-view>
 </template>
@@ -153,13 +149,8 @@ export default {
 
     signin: function(callback) {
       let vm = this;
-      // 检查登录状态
-      let localUser = util.session('token');
-      if (!localUser || !localUser.token) {
-        return vm.$router.push({ path: '/login', query: { from: vm.$router.currentRoute.path } });
-      }
       // 设置请求头统一携带token
-      instance.defaults.headers.common['Authorization'] = 'Bearer ' + localUser.token;
+      // instance.defaults.headers.common['Authorization'] = 'Bearer ' + localUser.token;
       // 获取用户信息及权限数据
       instance.get(`/api/system/getUpsList`).then((res) => {
         let data = res.data;
@@ -210,6 +201,10 @@ export default {
       }).catch(util.catchError);
     },
 
+    test: function() {
+      window.location.href="http://localhost:9999/api/system/getUpsList"
+    },
+
     // 登录
     loginDirect: function(newPath){
       this.signin(() => {
@@ -228,11 +223,15 @@ export default {
       // 清除请求头token
       instance.defaults.headers.common['Authorization'] = '';
       // 回到登录页
-      this.$router.replace({path: '/login'});
+      this.$router.replace({path: '/'});
     }
   },
   created: function(newPath) {
-    this.signin();
+    this.test();
   }
 }
 </script>
+
+<style>
+  @import './assets/common.css';
+</style>

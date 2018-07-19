@@ -1,16 +1,3 @@
-<style scoped>
-
-.extendGroup {
-  float: right;
-  margin-right: 20px;
-  opacity: 0;
-}
-
-.el-tree-node__content:hover .extendGroup {
-  opacity: 1;
-}
-</style>
-
 <template>
   <div v-loading="loading">
     <!-- 操作 -->
@@ -74,3 +61,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+  .extendGroup {
+    float: right;
+    margin-right: 20px;
+    opacity: 0;
+  }
+
+  .el-tree-node__content:hover .extendGroup {
+    opacity: 1;
+  }
+</style>

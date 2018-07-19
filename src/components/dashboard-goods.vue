@@ -1,7 +1,3 @@
-<style>
-
-</style>
-
 <template>
   <div>
     <h4>商品数量</h4>
@@ -32,3 +28,7 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+</style>

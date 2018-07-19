@@ -1,7 +1,3 @@
-<style scoped>
-
-</style>
-
 <template>
   <div>
     <el-row>
@@ -23,3 +19,7 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+</style>

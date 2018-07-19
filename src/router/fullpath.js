@@ -2,13 +2,13 @@ import Abstract from '../views/common/abstract.vue';
 
 export default [{
   path: '/',
-  name: '首页',
+  name: '工作台',
   component: (resolve) => require(['../views/index.vue'], resolve),
   children: [{
     path: '/v1',
     name: '订单管理',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-dingdan'
     },
     component: Abstract,
     children: [{
@@ -31,7 +31,7 @@ export default [{
     path: '/v2',
     name: '床位管理',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-chuang'
     },
     component: Abstract,
     children: [{
@@ -74,7 +74,7 @@ export default [{
     path: '/v3',
     name: '密码锁管理',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-zhinengsuo'
     },
     component: Abstract,
     children: [{
@@ -107,7 +107,7 @@ export default [{
     path: '/v4',
     name: '报表',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-icon-p_mrpbaobiao'
     },
     component: Abstract,
     children: [{
@@ -135,7 +135,7 @@ export default [{
     path: '/v5',
     name: '优惠信息',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-youhuiquan'
     },
     component: Abstract,
     children: [{
@@ -158,7 +158,7 @@ export default [{
     path: '/v6',
     name: '标签管理',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-biaoqian'
     },
     component: Abstract,
     children: [{
@@ -171,7 +171,7 @@ export default [{
     path: '/v7',
     name: '模板管理',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-moban'
     },
     component: Abstract,
     children: [{
@@ -194,7 +194,7 @@ export default [{
     path: '/v8',
     name: '营销管理',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-yingxiao'
     },
     component: Abstract,
     children: [{
@@ -212,7 +212,7 @@ export default [{
     path: '/v9',
     name: '聊天管理',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-liaotian'
     },
     component: Abstract,
     children: [{
@@ -225,7 +225,7 @@ export default [{
     path: '/v10',
     name: '在线报修',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-baoxiu'
     },
     component: Abstract,
     children: [{
@@ -238,7 +238,7 @@ export default [{
     path: '/v11',
     name: '项目权限管理',
     meta: {
-      icon: '&#xe62e;'
+      icon: 'fontFamily ele-icon-permissions-user'
     },
     component: Abstract,
     children: [{

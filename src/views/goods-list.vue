@@ -1,7 +1,3 @@
-<style scoped>
-
-</style>
-
 <template>
   <div v-loading="loading">
     <!-- 操作 -->
@@ -26,7 +22,7 @@
       <el-table-column prop="creation_time_beauty" label="创建时间" align="center">
       </el-table-column>
     </el-table>
-    
+
   </div>
 </template>
 
@@ -66,3 +62,7 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+</style>

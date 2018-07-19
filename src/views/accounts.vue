@@ -1,7 +1,3 @@
-<style scoped>
-
-</style>
-
 <template>
   <div v-loading="loading">
     <!-- 操作 -->
@@ -80,3 +76,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>

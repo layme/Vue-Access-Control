@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { Message } from 'element-ui'
+import moment from "moment"
 Vue.component(Message.name, Message)
 
 //sessionStorage
@@ -147,6 +148,25 @@ export const catchError = function(error) {
           type: 'error'
         });
     }
+  } else if (error.message === "Network Error") {
+    Vue.prototype.$message({
+      message: '无法连接到服务端，联系技术支持',
+      type: 'error'
+    });
+  } else {
+    Vue.prototype.$message({
+      message: '未知错误，请联系技术支持',
+      type: 'error'
+    });
   }
   return Promise.reject(error);
+}
+
+// table格式化日期
+export const tableDateFormat = function(row, column) {
+  var date = row[column.property];
+  if (date == undefined) {
+    return "";
+  }
+  return moment(date).format("YYYY-MM-DD");
 }

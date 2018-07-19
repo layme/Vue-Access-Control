@@ -3,6 +3,10 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 let baseRoute = [{
+  path: '/',
+  name: '工作台',
+  component: (resolve) => require(['../views/index.vue'], resolve)
+}, {
   path: '/login',
   name: '登录',
   component: (resolve) => require(['../views/login.vue'], resolve)
@@ -17,7 +21,8 @@ let baseRoute = [{
 }];
 
 let router = new Router({
-  routes: baseRoute
+  routes: baseRoute,
+  mode: 'history'
 });
 
 router.beforeEach((to, from, next) => {
